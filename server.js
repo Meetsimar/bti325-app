@@ -7,7 +7,7 @@ other source
 *
 * Name: Meetsimar Kaur Student ID: 106510217 Date: 07/10/2022
 *
-* Your app’s URL (from Cyclic) : ______________________________________________
+* Your app’s URL (from Cyclic) : https://itchy-jodhpurs-deer.cyclic.app/
 *
 *************************************************************************/
 
