@@ -1,10 +1,14 @@
+const { resolve } = require('dns');
 var fs = require('fs');
 var employees = [];
 var departments = [];
 var managers = [];
+var empstatus = [];
+var empdepart = [];
+var empmanagenum = [];
 
-exports.initialize = function(){
-    return new Promise(function(resolve, reject) {
+exports.initialize = function () {
+    return new Promise(function (resolve, reject) {
         fs.readFile('./data/employees.json', (err, data) => {
             if (err) {
                 reject("Failure to read file employees.json!");
@@ -29,7 +33,8 @@ exports.initialize = function(){
     })
 }
 
-exports.getAllEmployees = function(){
+
+exports.getAllEmployees = function () {
     return new Promise(function (resolve, reject) {
         if (employees.length > 0) {
             resolve(employees);
@@ -40,7 +45,7 @@ exports.getAllEmployees = function(){
     })
 }
 
-exports.getManagers = function() {
+exports.getManagers = function () {
     return new Promise(function (resolve, reject) {
         if (employees.length > 0) {
             var x = 0;
@@ -59,7 +64,7 @@ exports.getManagers = function() {
     )
 }
 
-exports.getDepartments = function(){
+exports.getDepartments = function () {
     return new Promise(function (resolve, reject) {
         if (departments.length > 0) {
             resolve(departments);
@@ -70,3 +75,95 @@ exports.getDepartments = function(){
     }
     )
 }
+
+//TODOOO
+exports.addEmployee = function (employeeData) {
+    return new Promise(function (resolve, reject) {
+        if (typeof employeeData.isManager === "undefined") {
+            employeeData.isManager = false;
+        }
+        else {
+            employeeData.isManager = true;
+        }
+
+        employeeData.employeeNum = employees.length() + 1;
+        employees[employees.length()] = employeeData;
+
+        if (employeeData) resolve(employees);
+        else reject("error adding post");
+    })
+
+}
+
+exports.getEmployeesByStatus = function (status) {
+    return new Promise(function (resolve, reject) {
+        if (employees.length > 0) {
+            var x = 0;
+            for (var i in employees) {
+                if (employees[i].status == status) {
+                    empstatus[x] = employees[i];
+                    x++;
+                }
+            }
+            resolve(empstatus);
+        }
+        else {
+            reject("no results returned");
+        };
+    })
+}
+
+exports.getEmployeesByDepartment = function (department) {
+    return new Promise((resolve, reject) => {
+        if (employees.length > 0) {
+            var x = 0;
+            for (var i in employees) {
+                if (employees[i].department == department) {
+                    empdepart[x] = employees[i];
+                    x++;
+                }
+            }
+            resolve(empdepart);
+        }
+        else {
+            reject("no results returned");
+        };
+    })
+}
+
+exports.getEmployeesByManager = function (manager) {
+    return new Promise((resolve, reject) => {
+        if (employees.length > 0) {
+            var x = 0;
+            for (var i in employees) {
+                if (employees[i].employeeManagerNum == manager) {
+                    empmanagenum[x] = employees[i];
+                    x++;
+                }
+            }
+            resolve(empmanagenum);
+        }
+        else {
+            reject("no results returned");
+        };
+    })
+}
+
+exports.getEmployeeByNum = function (num) {
+    return new Promise(function (resolve, reject) {
+        
+        if (employees.length > 0) {
+            for (var i in employees) {
+                if (employees[i].employeeNum == num) {
+                    index = i;
+                }
+            }
+
+            resolve(employees[index]);
+        }
+        else {
+            reject("no results returned");
+        };
+    })
+}
+
