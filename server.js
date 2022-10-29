@@ -1,15 +1,15 @@
 /*************************************************************************
-* BTI325– Assignment 2
-* I declare that this assignment is my own work in accordance with Seneca Academic
-Policy. No part * of this assignment has been copied manually or electronically from any
-other source
+* BTI325– Assignment 3
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy.
+No part of this assignment has been copied manually or electronically from any other source.
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Meetsimar Kaur Student ID: 106510217 Date: 07/10/2022
+* Name: Meetsimar Kaur Student ID: 106510217 Date: 28/10/2022
 *
-* Your app’s URL (from Cyclic) : https://itchy-jodhpurs-deer.cyclic.app/
+* Your app’s URL (from Cyclic Heroku) that I can click to see your application:
+* https://fierce-river-57046.herokuapp.com/
 *
-*************************************************************************/
+*************************************************************************/ 
 
 const express = require("express");
 const app = express();
