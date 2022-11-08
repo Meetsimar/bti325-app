@@ -151,14 +151,12 @@ exports.getEmployeesByManager = function (manager) {
 
 exports.getEmployeeByNum = function (num) {
     return new Promise(function (resolve, reject) {
-        
         if (employees.length > 0) {
             for (var i in employees) {
                 if (employees[i].employeeNum == num) {
                     index = i;
                 }
             }
-
             resolve(employees[index]);
         }
         else {
@@ -167,3 +165,30 @@ exports.getEmployeeByNum = function (num) {
     })
 }
 
+exports.updateEmployee = function (employeeData) {
+    return new Promise(function (resolve, reject) {
+        if (employees.length > 0) {
+            for (var i in employees) {
+                if (employees[i].SSN == employeeData.SSN) {
+                    employees[i].firstName = employeeData.firstName;
+                    employees[i].lastName = employeeData.lastName;
+                    employees[i].email = employeeData.email
+                    employees[i].SSN = employeeData.SSN
+                    employees[i].addressStreet = employeeData.addressStreet
+                    employees[i].addressCity = employeeData.addressCity
+                    employees[i].addressState = employeeData.addressState
+                    employees[i].addressPostal = employeeData.addressPostal
+                    employees[i].isManager = employeeData.isManager
+                    employees[i].employeeManagerNum = employeeData.employeeManagerNum
+                    employees[i].status = employeeData.status
+                    employees[i].department = employeeData.department
+                    employees[i].hireDate = employeeData.hireDate                    
+                }
+            }
+            resolve();
+        }
+        else {
+            reject("no results returned");
+        }
+    })
+}
