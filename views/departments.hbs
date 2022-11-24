@@ -1,8 +1,9 @@
 <div class="row" style="background-color:rgb(255, 255, 255);color:black;">
- <div class="col-md-12">
- <h2>Departments</h2>
- <hr>
- <p>
+    <div class="col-md-12">
+        <h2>Departments
+            <a href="/departments/add" class="btn btn-success pull-right">Add New Department</a>
+        </h2>
+        <hr>
         <table class="table">
             <thead>
                 <tr>
@@ -10,14 +11,14 @@
                     <th>Department Name</th>
                 </tr>
             </thead>
-            <tbody>{{#each departments}}
+            <tbody>
+                {{#each departments}}
                 <tr>
                     <td><a href="/employees?department={{departmentId}}">{{departmentId}}</a></td>
-                    <td><a href="/employees?department={{departmentId}}">{{departmentName}}</a></td>
+                    <td><a href="/department/{{departmentId}}">{{departmentName}}</a></td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
- </p>
- </div>
+    </div>
 </div>
