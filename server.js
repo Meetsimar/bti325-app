@@ -1,5 +1,5 @@
 /*************************************************************************
-* BTI325– Assignment 4
+* BTI325– Assignment 5
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy.
 No part of this assignment has been copied manually or electronically from any other source.
 * (including 3rd party web sites) or distributed to other students.
@@ -75,7 +75,11 @@ app.use(function (req, res, next) {
 
 
 app.post("/images/add", upload.single("imageFile"), (req, res) => {
-    res.render("addImage", { layout: "main" });
+    res.redirect("/images");
+})
+
+app.get("/images/add", (req, res) => {
+    res.render("addImage");
 })
 
 app.get('/', function (req, res) {
@@ -202,9 +206,7 @@ app.post("/departments/add", (req, res) => {
         .then(() => res.redirect('/departments'))
         .catch((err) => res.json({ "message": err }))
 });
-app.get("/images/add", (req, res) => {
-    res.render("addImage");
-})
+
 
 app.get("/images", (req, res) => {
     fs.readdir("./public/images/uploaded", (err, items) => {

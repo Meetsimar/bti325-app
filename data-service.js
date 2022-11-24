@@ -136,6 +136,8 @@ exports.addEmployee = function (employeeData) {
 
     return new Promise(function (resolve, reject) {
 
+        
+
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
         for (var i in employeeData) {
@@ -144,9 +146,7 @@ exports.addEmployee = function (employeeData) {
             }
         }
         Employee.create(employeeData)
-            .then(() => {
-                resolve();
-            })
+            .then(() => { console.log(employeeData); resolve(); })
             .catch(() => { reject("unable to create employee") });
 
     });
