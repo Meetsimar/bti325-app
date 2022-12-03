@@ -17,7 +17,7 @@ sequelize.authenticate()
         console.log(err);
     });
 
-
+// mongodb+srv://simar:<Pritpal769>@senecaweb.pvkyjrm.mongodb.net/web322_week8
 var Employee = sequelize.define("Employee", {
     employeeNum: {
         type: Sequelize.INTEGER,
