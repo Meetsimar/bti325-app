@@ -6,7 +6,12 @@
 *
 * Name: Meetsimar Kaur Student ID: 106510217 Date: 02/12/2022
 *
+<<<<<<< HEAD
 * Online (Heroku Cyclic) Link: ________________________________________________________
+=======
+* Your app’s URL (from Cyclic Heroku) that I can click to see your application:
+* https://tense-blue-antelope.cyclic.app/
+>>>>>>> dcb4286d807cdd961e4f3b583cd4498c9c010c47
 *
 ********************************************************************************/
 
